@@ -16,10 +16,9 @@ use App\Http\Controllers\PostsController;
 */
 
 Route::get('/', [PostsController::class,'index'])->name('home');
-Route::get('/ordernew', [PostsController::class, 'ordernew'])->name('ordernew');
-Route::get('/notordernow',[PostsController::class,'notordernow'])->name('notordernow');
+Route::post('/timefilter', [PostsController::class, 'timefilter'])->name('timefilter');
 
-Route::post('/filter_continent' , [PostsController::class,'filter_continent'])->name('filter-continent');
+Route::post('/filter-posts', [PostsController::class, 'filterPosts'])->name('filter-posts');
 
 
 

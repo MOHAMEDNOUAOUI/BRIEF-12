@@ -130,14 +130,21 @@
 
             <div class="filter justify-content-between w-75 d-flex align-items-center">
                     <div class="filtrage d-flex gap-4">
-                        @foreach($destinations as $destination)
-                        <h5 onclick="destination(this)" class="destinationss text-light" style="cursor:pointer">{{$destination->destination_name}}</h5>
+                       <form action="{{ route('filter-posts') }}" method="POST">
+                        @csrf
+                       @foreach($destinations as $destination)
+                        <button type="submit" name="destination_name" value="{{$destination->destination_name}}" class="fs-4 bg-transparent border-0 text-light" style="cursor:pointer">{{$destination->destination_name}}</button>
                         @endforeach
+                       </form>
                     </div>
 
                 <div class="">
-                    <ion-icon class="button-filter fs-1 btn m-0 p-0" id="up" name="caret-up-outline"></ion-icon>
-                    <ion-icon class="button-filter fs-1 btn m-0 p-0" id="down" name="caret-down-outline"></ion-icon>
+                    <form action="{{ route('timefilter') }}" method="POST">
+                        @csrf
+                   <button type="submit" value="up" name="timefilter"> <ion-icon class="button-filter fs-1 btn m-0 p-0"  name="caret-up-outline"></ion-icon></button>
+                   <button type="submit" value="down" name="timefilter"><ion-icon class="button-filter fs-1 btn m-0 p-0"  name="caret-down-outline"></ion-icon></button>
+
+                    </form>
                 </div>
 
 
@@ -189,7 +196,7 @@
 
                 
             </div>
-    
+                
         </div>
         
     </div>

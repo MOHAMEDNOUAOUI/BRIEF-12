@@ -21,38 +21,58 @@ class PostsController extends Controller
     ]);
     }
 
-    public function store_data(Request $request) {
-        $data = $request->validate([
-            'title'=>'required',
-            'content'=>'required',
-            'id_destination'=>'required'
-        ]);
 
-        Posts::create($data);
+    public function timefilter (request $request){
 
-        return redirect(route('home'));
-    }
+        $input  = $request->input('timefilter');
 
-    public function ordernew(){
-        $posts = Posts::with(['images', 'destination'])->orderBy('Posts.created_at', 'desc')->get();
-            return response()->json(['posts'=>$posts]);
-    }
 
-    public function notordernow(){
-        $posts = Posts::with(['images','destination'])
+        if($input == 'up'){
+            $posts = Posts::with(['images','destination'])
+        ->orderBy('Posts.created_at' , 'desc')
+        ->get();
+        }
+        else {
+            $posts = Posts::with(['images','destination'])
         ->orderBy('Posts.created_at')
         ->get();
-        return response()->json(['posts'=>$posts]);
+        }
+
+
+        $poststats = Posts::count();
+        $destinationstats = destinations::count();
+        $continents = destinations::all();
+
+
+        return view('home',['posts'=>$posts,
+        'destinations'=>$continents,
+        'postsstats'=>$poststats,
+        'destinationStats'=>$destinationstats
+    ]);
     }
 
-    public function filter_continent(Request $request){
-            $continent =  $request->input('continent');
-            $data = Posts::with(['images', 'destination'])
-    ->whereHas('destination', function ($query) use ($continent) {
-        $query->where('destination_name', 'like', '%' . $continent . '%');
-    })
-    ->get();
-        return response()->json(['posts'=>$data]);
+
+
+    public function filterPosts (Request $request)
+    {
+        $destinationName = $request->input('destination_name');
+
+        // Query posts based on the selected destination
+        $posts = Posts::whereHas('destination', function ($query) use ($destinationName) {
+            $query->where('destination_name', $destinationName);
+        })->get();
+
+        $poststats = Posts::count();
+        $destinationstats = destinations::count();
+        $continents = destinations::all();
+
+
+        // Return the filtered posts to the view or perform any other action
+        return view('home',['posts'=>$posts,
+        'destinations'=>$continents,
+        'postsstats'=>$poststats,
+        'destinationStats'=>$destinationstats
+    ]);
     }
 
 
