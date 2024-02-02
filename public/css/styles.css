@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+
+@font-face {
+    font-family: Dx Slight;
+    src: url(../font/dxslight-mediumultra-free-personal-use.otf);
+}
+
+@font-face {
+    font-family: against;
+    src: url(../font/against\ regular.otf);
+}
+
+@font-face {
+    font-family: Brigends;
+    src: url(../font/brigends-expanded-font-1705392758-0/brigendsexpanded-nrek1.otf);
+}
+
+@font-face {
+    font-family: MADE TOMMY;
+    src: url(../font/MADE\ TOMMY\ Light_PERSONAL\ USE.otf);
+}
+
+
+body {
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    font-family: 'Roboto' !important;
+    background-color: black !important;
+}
+
+.logo {
+    color: white;
+}
+
+
+.page .page2 .cart {
+   background-color: white;
+   height: 14rem !important;
+}
+
+.page .page2 .cart .left {
+    
+   
+}
+.page .page2 .cart .right {
+    
+    border-left: 1px solid black;
+    padding-left: 1rem;
+}
+
+.topper {
+    background: #ED213A;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+a.active {
+    cursor:not-allowed;
+    pointer-events:none;
+    color: rgb(155, 0, 0) !important;
+}
+
+
+
+
+.middlwhere {
+    width: 100% !important;
+    height: 100vh !important;
+}
+
+.middlepage1 {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.middlepage1 h1 {
+    position: relative;
+    z-index: 11;
+    font-size: 11rem;
+    text-shadow:10px 10px 20px rgba(255, 12, 12, 0.36);
+    font-family: against;
+    animation: animtext 10s ease infinite alternate;
+}
+
+@keyframes animtext {
+    0% {
+        color:white;
+        -webkit-text-stroke: 2px white;
+    }
+
+    50% {-webkit-text-stroke: 4px white;
+        color: transparent;
+        opacity: 0.1;
+    }
+
+    100% {
+        -webkit-text-stroke: 2px white;
+       color:white;
+    }
+}
+
+
+
+
+
+.middlepage1 h2 {
+    position: absolute;
+    top: 31%;
+    font-size: 13rem;
+    color: transparent;
+    -webkit-text-stroke: 3px rgba(255, 12, 12, 0.36);
+    z-index: 9;
+    font-family: Dx Slight;
+    animation: anim 10s ease infinite alternate;
+}
+
+
+@keyframes anim {
+    0% {
+        -webkit-text-stroke: 2px rgb(255, 0, 0);
+        text-shadow: 0 10px 100px rgb(255, 12, 12, 0.36);
+    }
+
+    50% {
+        color: rgb(255, 11, 11);
+    }
+
+    100% {
+        -webkit-text-stroke: 2px red;
+        text-shadow: 0 10px 100px rgba(255, 12, 12, 0.36);
+    }
+}
+
+
+
+.page2  {
+    min-height: 70vh;
+}
+
+
+@media (max-width:800px){
+
+    nav {
+        margin-bottom: 1rem;
+    }
+    .middlwhere {
+        height: 30vh !important;
+    }
+    .middlepage1 h1 {
+        font-size: 3rem;
+    }
+
+
+    .middlepage1 h2{
+        font-size: 4rem;
+        display: block;    
+    }
+
+    .filter{
+        flex-direction: column !important;
+
+    }
+}
+
+
+.statistiques {
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 4rem;
+}
+
+.statistiques .colored {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+}
+
+.statistiques .colored h4 {
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 6rem !important;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 2.809px;
+    text-transform: uppercase;
+    color: black;
+    background: linear-gradient(to bottom, #FF0000, #FF000000);
+    -webkit-text-stroke: 0.7rem transparent;
+    -webkit-background-clip: text;
+}
+
+.statistiques .colored div {
+    position: relative;
+    width: 25%;
+    text-align: center;
+}
+
+.statistiques .colored div .info {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.statistiques .colored div .info h5 {
+    color: #FFF;
+font-family: Brigends;
+font-size: 1rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+letter-spacing: 0.764px;
+text-transform: uppercase;
+}
+
+
+
+.destinationss.active {
+    color: red !important;
+}
+
+
+.drop-zone {
+    max-width: 8rem !important;
+    height: 8rem !important;
+    display:flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center;
+    color: white !important;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.drop-zone__input{
+    display: none;
+}
